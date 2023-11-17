@@ -13,7 +13,7 @@ A plugin for IntelliJ IDEA and other JetBrains IDEs that displays compatibility 
 <li>
 1. Right-click and go to inCorporate -> Module Analysis<br>
 <a href="./screenshot/screanshot0.png">
-<img title="a title" alt="inCorporate context menu" width="25%" src="./screenshot/screanshot4.png">
+<img title="a title" alt="inCorporate context menu" width="25%" src="./screenshot/screenshot0.png">
 </a>
 </li>
 <li>2. A new window will appear with the modules imported into your project and their respective dependencies, required versions, and compatibility</li>

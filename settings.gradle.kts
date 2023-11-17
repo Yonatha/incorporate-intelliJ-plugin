@@ -1,1 +1,8 @@
-rootProject.name = "AI Code Review"
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = "inCorporate"

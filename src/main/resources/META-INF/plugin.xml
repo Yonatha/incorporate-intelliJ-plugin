@@ -1,7 +1,7 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-    <id>com.yth.incorporate</id>
+    <id>br.yth.inCorporate</id>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
@@ -36,12 +36,16 @@ InCorporate: A plugin for IntelliJ IDEA and other JetBrains IDEs that displays c
 
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
     <actions>
         <group id="com.yth.ai.incorporate.popupcontextmenu" text="inCorporate" popup="true">
             <add-to-group group-id="EditorPopupMenu3" anchor="first"/>
             <action text="Module Analysis"
                     class="com.yth.incorporate.actions.ModuleAnalysisAction"
-                    id="com.yth.ai.incorporate.popupcontextmenu.moduleAnalysis">
+                    id="com.yth.incorporate.popupcontextmenu.moduleAnalysis">
             </action>
         </group>
     </actions>

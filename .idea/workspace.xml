@@ -4,34 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f6599c9-82b7-4da3-9e57-ebc8a347adfb" name="Changes" comment="Validação dos campos na configuração do plugin">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/ModuleAnalysis/CompatibilityStatusEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/ModuleAnalysis/SemanticVersion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/actions/ModuleAnalysisAction.java" afterDir="false" />
+    <list default="true" id="faca17c6-1869-43fd-bfe4-72207a4174ee" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.run/Run IDE with Plugin.run.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.run/Run Plugin.run.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/screanshot0.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/screanshot2.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/screanshot4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/screanshot5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot/screanshot6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/actions/CodeReviewAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/IOpenAIClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/OpenAIClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/OpenAIRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/OpenAIResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/CodeReviewConfiguration.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/CodeReviewConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/CodeReviewSettings.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/CodeReviewSettings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/PluginPropertiesEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/ValidateSettings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/pluginIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/pluginIcon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages/messages_en_US.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages/messages_es_ES.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages/messages_pt_BR.json" beforeDir="false" />
     </list>
-    <list id="7cc25733-2db3-4468-8c3f-157d16653f86" name="ANTEÇÃO" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,9 +49,6 @@
             </after_sync>
           </activation>
         </task>
-        <task path="$PROJECT_DIR$/src">
-          <activation />
-        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -64,24 +58,8 @@
       </state>
     </system>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/release/1.0.0" />
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$/.." value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -94,13 +72,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 5
+  &quot;associatedIndex&quot;: 6
 }</component>
-  <component name="ProjectId" id="2Lw5xBLzevIyfjxiStYC23l93O0" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
-  </component>
+  <component name="ProjectId" id="2YJco8iLnB1UP6Hpw8JV75QcMff" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -109,119 +83,24 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
-    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/projetos/pessoal/ai-code-review/src/main/resources/META-INF",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
+    "last_opened_file_path": "C:/projetos/pessoal/meus-plugins-intellij/incorporate/inCorporate/build/distributions/inCorporate-1.0.0.zip",
     "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "ruby.rails.projectView.checked": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projetos\pessoal\ai-code-review\src\main\resources\META-INF" />
-      <recent name="C:\projetos\pessoal\ai-code-review\screenshot" />
-      <recent name="C:\projetos\pessoal\ai-code-review\src\main\java\com\yth\ai\codereview" />
-      <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
-      <recent name="$PROJECT_DIR$/src/main/resources/messages" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/screenshot" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/main/resources/META-INF/messages" />
-      <recent name="$PROJECT_DIR$/src/main/resources/META-INF/language" />
-      <recent name="$PROJECT_DIR$/src/main/java/yth/ai/codereview/configuration" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.yth.ai.codereview.actions" />
+      <recent name="C:\projetos\pessoal\meus-plugins-intellij\incorporate\inCorporate" />
+      <recent name="C:\projetos\pessoal\meus-plugins-intellij\incorporate\inCorporate\src\main" />
+      <recent name="C:\projetos\pessoal\meus-plugins-intellij\incorporate\inCorporate\src\main\resources\META-INF" />
     </key>
   </component>
-  <component name="RubyModuleManagerSettings">
-    <option name="blackListedRootsPaths">
-      <list>
-        <option value="$PROJECT_DIR$" />
-        <option value="$PROJECT_DIR$/src/main" />
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Gradle.Run Plugin">
-    <configuration name="C:/projetos/pessoal/ai-code-review/src [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/src" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="ai-code-review [buildPlugin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="buildPlugin" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="ai-code-review [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="demo [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.inCorporate [build]">
+    <configuration name="inCorporate [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -233,28 +112,6 @@
         <option name="taskNames">
           <list>
             <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="demo [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -267,268 +124,19 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.demo [build]" />
-        <item itemvalue="Gradle.ai-code-review [clean]" />
-        <item itemvalue="Gradle.ai-code-review [buildPlugin]" />
-        <item itemvalue="Gradle.C:/projetos/pessoal/ai-code-review/src [build]" />
-        <item itemvalue="Gradle.demo [jar]" />
+        <item itemvalue="Gradle.inCorporate [build]" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4f6599c9-82b7-4da3-9e57-ebc8a347adfb" name="Changes" comment="" />
-      <created>1676769551069</created>
+      <changelist id="faca17c6-1869-43fd-bfe4-72207a4174ee" name="Changes" comment="" />
+      <created>1700247295652</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1676769551069</updated>
-      <workItem from="1676804343612" duration="3420000" />
-      <workItem from="1676835159565" duration="1298000" />
-      <workItem from="1676836951664" duration="12278000" />
-      <workItem from="1676926712317" duration="3330000" />
+      <updated>1700247295652</updated>
     </task>
-    <task id="LOCAL-00001" summary="Adicionado ProgressManager na requisção da OpenAI">
-      <created>1676807382359</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1676807382359</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Adicionado ProgressManager na requisção da OpenAI">
-      <created>1676845074796</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1676845074796</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Adicionado ProgressManager na requisção da OpenAI">
-      <created>1676848053293</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1676848053293</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Adicionado ProgressManager na requisção da OpenAI">
-      <created>1676848306998</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1676848306998</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Funcionando">
-      <created>1676902922569</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1676902922569</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Funcionando">
-      <created>1676903336524</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1676903336524</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Adicionado MODEL_PROPERTY">
-      <created>1676903830577</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1676903830577</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Adicionado todos os campos de configuração do plugin">
-      <created>1676904343471</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1676904343471</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Internacionalização">
-      <created>1676910386423</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1676910386423</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Internacionalização">
-      <created>1676910672706</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1676910672706</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Internacionalização">
-      <created>1676927125746</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1676927125746</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Internacionalização">
-      <created>1676927923788</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1676927923788</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Internacionalização">
-      <created>1676928110226</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1676928110226</updated>
-    </task>
-    <task id="LOCAL-00014" summary="adição do pluginIcon.svg">
-      <created>1676929062273</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1676929062273</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Adicionado o popupcontextmenu e renomeado pacotes">
-      <created>1676936640015</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1676936640015</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Atualização da descrição do plugin.xml">
-      <created>1676938308422</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1676938308422</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Atualização da descrição do plugin.xml">
-      <created>1676938338083</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1676938338083</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Atualização da descrição do plugin.xml">
-      <created>1676938389373</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1676938389373</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Atualização da descrição do plugin.xml">
-      <created>1676939980945</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1676939980945</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Atualização da descrição do plugin.xml">
-      <created>1676940267366</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1676940267366</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Atualização da descrição do plugin.xml">
-      <created>1676940462097</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1676940462097</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Atualização da descrição do plugin.xml">
-      <created>1676940518496</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1676940518496</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Devide and Conquer no CodeReviewAction">
-      <created>1677021235304</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1677021235304</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Validação dos campos na configuração do plugin">
-      <created>1677030069882</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1677030069882</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Validação dos campos na configuração do plugin">
-      <created>1677031105215</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1677031105215</updated>
-    </task>
-    <option name="localTasksCounter" value="26" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/.." />
-    </ignored-roots>
-    <MESSAGE value="Adicionado ProgressManager na requisção da OpenAI" />
-    <MESSAGE value="Funcionando" />
-    <MESSAGE value="Adicionado MODEL_PROPERTY" />
-    <MESSAGE value="Adicionado todos os campos de configuração do plugin" />
-    <MESSAGE value="Internacionalização" />
-    <MESSAGE value="adição do pluginIcon.svg" />
-    <MESSAGE value="Adicionado o popupcontextmenu e renomeado pacotes" />
-    <MESSAGE value="Atualização da descrição do plugin.xml" />
-    <MESSAGE value="Devide and Conquer no CodeReviewAction" />
-    <MESSAGE value="Validação dos campos na configuração do plugin" />
-    <option name="LAST_COMMIT_MESSAGE" value="Validação dos campos na configuração do plugin" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/yth/incorporate/client/OpenAIClient.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/yth/incorporate/client/OpenAIClient.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/yth/incorporate/client/OpenAIClient.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/yth/incorporate/client/OpenAIClient.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="GradleRunConfiguration">
-        <watch expression="propertiesComponent.getValue(PluginPropertiesEnum.TOKENS_PROPERTY.getPropertyName()" language="JAVA" />
-        <watch expression="propertiesComponent.getValue(PluginPropertiesEnum.TEMPERATURE_PROPERTY.getPropertyName())" language="JAVA" />
-        <watch expression="propertiesComponent.getValue(PluginPropertiesEnum.LANGUAGE_PROPERTY.getPropertyName())" language="JAVA" />
-        <watch expression="propertiesComponent.getValue(PluginPropertiesEnum.MODEL_PROPERTY.getPropertyName())" language="JAVA" />
-        <watch expression="propertiesComponent.getValue(PluginPropertiesEnum.SECRET_KEY_PROPERTY.getPropertyName())" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>
