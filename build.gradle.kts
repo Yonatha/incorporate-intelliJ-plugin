@@ -3,8 +3,8 @@ plugins {
     id("org.jetbrains.intellij") version "1.7.0"
 }
 
-group = "com.yth.ai.codereview"
-version = "1.2.1"
+group = "com.yth.incorporate"
+version = "1.0.0"
 
 repositories {
     mavenCentral()

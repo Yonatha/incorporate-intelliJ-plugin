@@ -5,16 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f6599c9-82b7-4da3-9e57-ebc8a347adfb" name="Changes" comment="Validação dos campos na configuração do plugin">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_21_23,_7_54_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_21_23,_7_55_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_21_23__7_54_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_21_23__7_55_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/ModuleAnalysis/CompatibilityStatusEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/ModuleAnalysis/SemanticVersion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/actions/ModuleAnalysisAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/OpenAIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/OpenAIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/screanshot0.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/screanshot2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/screanshot4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/screanshot5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/screanshot6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/actions/CodeReviewAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/IOpenAIClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/OpenAIClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/OpenAIRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/OpenAIResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/CodeReviewConfiguration.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/CodeReviewConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/CodeReviewSettings.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/CodeReviewSettings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/PluginPropertiesEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/configuration/ValidateSettings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/pluginIcon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/pluginIcon.svg" afterDir="false" />
     </list>
     <list id="7cc25733-2db3-4468-8c3f-157d16653f86" name="ANTEÇÃO" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,10 +113,9 @@
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "false",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "WebServerToolWindowFactoryState": "false",
-    "android.gradle.sync.needed": "true",
-    "git-widget-placeholder": "release/1.2.1",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/projetos/pessoal/ai-code-review/build/distributions/AI Code Review-1.2.1.zip",
+    "last_opened_file_path": "C:/projetos/pessoal/ai-code-review/src/main/resources/META-INF",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -109,15 +123,17 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "ruby.rails.projectView.checked": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projetos\pessoal\ai-code-review\src\main\resources\META-INF" />
+      <recent name="C:\projetos\pessoal\ai-code-review\screenshot" />
+      <recent name="C:\projetos\pessoal\ai-code-review\src\main\java\com\yth\ai\codereview" />
       <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
       <recent name="$PROJECT_DIR$/src/main/resources/messages" />
-      <recent name="$PROJECT_DIR$/src/main/resources/META-INF/messages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/screenshot" />
@@ -125,6 +141,9 @@
       <recent name="$PROJECT_DIR$/src/main/resources/META-INF/messages" />
       <recent name="$PROJECT_DIR$/src/main/resources/META-INF/language" />
       <recent name="$PROJECT_DIR$/src/main/java/yth/ai/codereview/configuration" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yth.ai.codereview.actions" />
     </key>
   </component>
   <component name="RubyModuleManagerSettings">
@@ -135,7 +154,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.ai-code-review [buildPlugin]">
+  <component name="RunManager" selected="Gradle.Run Plugin">
     <configuration name="C:/projetos/pessoal/ai-code-review/src [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -170,6 +189,28 @@
         <option name="taskNames">
           <list>
             <option value="buildPlugin" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ai-code-review [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -226,10 +267,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.demo [build]" />
+        <item itemvalue="Gradle.ai-code-review [clean]" />
         <item itemvalue="Gradle.ai-code-review [buildPlugin]" />
         <item itemvalue="Gradle.C:/projetos/pessoal/ai-code-review/src [build]" />
         <item itemvalue="Gradle.demo [jar]" />
-        <item itemvalue="Gradle.demo [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -458,22 +500,22 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/OpenAIClient.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/yth/incorporate/client/OpenAIClient.java</url>
           <line>73</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/OpenAIClient.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/yth/incorporate/client/OpenAIClient.java</url>
           <line>34</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/OpenAIClient.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/yth/incorporate/client/OpenAIClient.java</url>
           <line>32</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/yth/ai/codereview/client/OpenAIClient.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/yth/incorporate/client/OpenAIClient.java</url>
           <line>71</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
