@@ -14,7 +14,7 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-InCorporate: A plugin for IntelliJ IDEA and other JetBrains IDEs that displays compatibility between module versions in a project.
+A plugin for IntelliJ IDEA and other JetBrains IDEs that displays compatibility between module versions in a project.
 <br><br>
 <b>Features:</b>
 <ul>
