@@ -14,6 +14,9 @@ import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.lib.Ref;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -28,6 +31,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
 import java.util.regex.Matcher;
@@ -44,20 +48,39 @@ public class ModuleAnalysisAction extends AnAction {
         semanticVersionList.clear();
         artifactList.clear();
 
-        loadArtifactList();
+        try {
+            loadArtifactList();
+        } catch (GitAPIException ex) {
+            throw new RuntimeException(ex);
+        }
         loadSemanticVersionList();
         displayGUI();
     }
 
-    public void loadArtifactList() {
+    public void loadArtifactList() throws GitAPIException {
         Project project = ProjectManager.getInstance().getOpenProjects()[0];
         VirtualFile[] moduleContentRoots = ProjectRootManager.getInstance(project).getContentRootsFromAllModules();
         List<VirtualFile> projectModulesList = getModuleNames(moduleContentRoots);
 
         for (VirtualFile module : projectModulesList) {
             Model model = getArtifactId(module);
-            if (model.getArtifactId() != null)
+            if (model.getArtifactId() != null) {
                 artifactList.add(model);
+                getBranches(module);
+            }
+        }
+    }
+
+    public static void getBranches(VirtualFile module) throws GitAPIException {
+        String url = "https://github.com/Yonatha/ai-code-review.git";
+        Collection<Ref> refs = Git.lsRemoteRepository()
+                .setHeads(true)
+                .setTags(true)
+                .setRemote(url)
+                .call();
+
+        for (Ref branch : refs) {
+            System.out.println("Branch: " + branch.getName());
         }
     }
 

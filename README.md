@@ -36,3 +36,16 @@ Analysis of compatibilities among versions of existing modules in your Java/Kotl
     <li>Support to the module with Gradle</li>
     <li>Feel free to send any feature suggestions to me :)</li>
 </ul>
+
+
+
+String url = "https://github.com/Yonatha/ai-code-review.git";
+try (Git git = Git.cloneRepository()
+.setURI(url)
+.setDirectory(Paths.get("/path/to/local/repo").toFile())
+.call()) {
+Collection<String> remoteUrls = git.getRepository().getConfig().getStringList("remote", "origin", "url");
+System.out.println(remoteUrls.iterator().next());
+} catch (GitAPIException | IOException e) {
+e.printStackTrace();
+}
