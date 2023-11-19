@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="faca17c6-1869-43fd-bfe4-72207a4174ee" name="Changes" comment="update readme">
+    <list default="true" id="faca17c6-1869-43fd-bfe4-72207a4174ee" name="Changes" comment="1 list branches remote">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/actions/ModuleAnalysisAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/actions/ModuleAnalysisAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +39,11 @@
     </system>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
@@ -64,7 +68,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "feature/1",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/projetos/trato/trato-workspace",
     "project.structure.last.edited": "Project",
@@ -126,13 +130,22 @@
       <option name="project" value="LOCAL" />
       <updated>1700257181196</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1 list branches remote">
+      <option name="closed" value="true" />
+      <created>1700329295394</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700329295394</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v1.0.0" />
     <MESSAGE value="Atualização README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atualização README.md" />
+    <MESSAGE value="1 list branches remote" />
+    <option name="LAST_COMMIT_MESSAGE" value="1 list branches remote" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -140,7 +153,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/yth/incorporate/actions/ModuleAnalysisAction.java</url>
           <line>82</line>
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

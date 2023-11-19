@@ -49,3 +49,8 @@ System.out.println(remoteUrls.iterator().next());
 } catch (GitAPIException | IOException e) {
 e.printStackTrace();
 }
+
+
+
+Repository repository = Git.open(new File(module.getPath())).getRepository();
+repository.getConfig().getString("remote","origin","url");

@@ -17,6 +17,8 @@ import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Ref;
+import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.transport.URIish;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -30,6 +32,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -71,17 +74,51 @@ public class ModuleAnalysisAction extends AnAction {
         }
     }
 
-    public static void getBranches(VirtualFile module) throws GitAPIException {
-        String url = "https://github.com/Yonatha/ai-code-review.git";
-        Collection<Ref> refs = Git.lsRemoteRepository()
-                .setHeads(true)
-                .setTags(true)
-                .setRemote(url)
-                .call();
+    public static void getBranches(VirtualFile module) {
+
+        Repository repository = null;
+        try {
+            repository = Git.open(new File(module.getPath())).getRepository();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        String repositoryUrl = repository.getConfig().getString("remote", "origin", "url");
+
+        if (repositoryUrl.contains("@"))
+            repositoryUrl = convertSshToHttps(repositoryUrl);
+
+        Collection<Ref> refs = null;
+        try {
+            refs = Git.lsRemoteRepository()
+                    .setHeads(true)
+                    .setTags(true)
+                    .setRemote(repositoryUrl)
+                    .call();
+        } catch (GitAPIException e) {
+            throw new RuntimeException(e);
+        }
 
         for (Ref branch : refs) {
-            System.out.println("Branch: " + branch.getName());
+            String brancName = branch.getName().replaceAll("refs/heads/","");
+            System.out.println("Branch: " + brancName);
         }
+    }
+
+    public static String convertSshToHttps(String sshUrl) {
+
+        URIish uri = null;
+        try {
+            uri = new URIish(sshUrl);
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+        String host = uri.getHost();
+        String path = uri.getPath();
+        String user = uri.getUser();
+        if (user != null && !user.isEmpty())
+            host = host.replace(user + "@", "");
+
+        return "https://" + host + "/" + path;
     }
 
     public void loadSemanticVersionList() {
