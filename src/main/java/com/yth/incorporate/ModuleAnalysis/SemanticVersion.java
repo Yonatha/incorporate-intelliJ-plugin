@@ -1,11 +1,33 @@
 package com.yth.incorporate.ModuleAnalysis;
 
+import java.util.List;
+
 public class SemanticVersion {
     public String moduleName;
+
+    public String getModuleCurrentBranch() {
+        return moduleCurrentBranch;
+    }
+
+    public void setModuleCurrentBranch(String moduleCurrentBranch) {
+        this.moduleCurrentBranch = moduleCurrentBranch;
+    }
+
+    public String moduleCurrentBranch;
     public String dependencyName;
+
     public String dependencyCurrentVersion;
     public String dependencyRequiredVersion;
     public String compatibility;
+    public List<String> branches;
+
+    public List<String> getBranches() {
+        return branches;
+    }
+
+    public void setBranches(List<String> branches) {
+        this.branches = branches;
+    }
 
     public String getModuleName() {
         return moduleName;

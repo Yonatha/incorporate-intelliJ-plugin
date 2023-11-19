@@ -14,17 +14,18 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-A plugin for IntelliJ IDEA and other JetBrains IDEs that displays compatibility between module versions in a project.
+Analysis of compatibilities among versions of existing modules in your Java/Kotlin project.
 <br><br>
 <b>Features:</b>
 <ul>
-    <li>Module Analysis: Displays the compatibility status of all module versions in a project, including major, minor, and patch versions.</li>
-    <li>Supports all JetBrains IDEs, including IntelliJ IDEA, PyCharm, WebStorm, and Android Studio.</li>
+    <li>Module Analysis: Displays the compatibility status of all module versions in a project and switch branches.</li>
+    <li>Switch branches</li>
+    <li>Support IntelliJ and Android Studio.</li>
 </ul>
 <br>
 <b>Coming soon:</b>
 <ul>
-    <li>Change version on the Module Analysis and apply upgrade/downgrade compatibility</li>
+    <li>Change version on the Module Compatibility Analysis and apply upgrade/downgrade compatibility</li>
     <li>Display historic of tags on the remote repository for each module of project</li>
     <li>Feel free to send any feature suggestions to me :)</li>
 </ul>
@@ -37,16 +38,27 @@ A plugin for IntelliJ IDEA and other JetBrains IDEs that displays compatibility 
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <notificationGroup id="notification.codereview"
+                           displayType="BALLOON"
+                           key="notification.incorporate"/>
     </extensions>
 
     <actions>
+        <action
+                id="com.yth.incorporate.popupcontextmenu.ToolsMenu"
+                class="com.yth.incorporate.actions.ModuleAnalysisAction"
+                text="Module Compatibility Analysis"
+                description="Analisar compatibilidade de dependências entre modulos">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+
         <group id="com.yth.ai.incorporate.popupcontextmenu" text="inCorporate" popup="true">
             <add-to-group group-id="EditorPopupMenu3" anchor="first"/>
-            <action text="Module Analysis"
+            <action text="Module Compatibility Analysis"
                     class="com.yth.incorporate.actions.ModuleAnalysisAction"
                     id="com.yth.incorporate.popupcontextmenu.moduleAnalysis">
             </action>
         </group>
+
     </actions>
 </idea-plugin>

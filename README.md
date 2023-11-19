@@ -5,13 +5,14 @@ Analysis of compatibilities among versions of existing modules in your Java/Kotl
 <br>
 <b>Features:</b>
 <ul>
-    <li>Module Analysis: Displays the compatibility status of all module versions in a project, including major, minor, and patch versions.</li>
-    <li>Supports all JetBrains IDEs, including IntelliJ IDEA, PyCharm, WebStorm, and Android Studio.</li>
+    <li>Module Analysis: Displays the compatibility status of all module versions in a project and switch branches.</li>
+    <li>Switch branches</li>
+    <li>Support IntelliJ and Android Studio.</li>
 </ul>
 <h3>Usage</h3>
 <ul>
 <li>
-1. Right-click and go to inCorporate -> Module Analysis<br>
+1. Click on the main Tool -> Module Compatibility Analysis<br>
 <br>
 <a href="./screenshot/screanshot0.png">
 <img title="a title" alt="inCorporate context menu" src="./screenshot/screenshot0.png">
@@ -25,6 +26,11 @@ Analysis of compatibilities among versions of existing modules in your Java/Kotl
 <img title="a title" alt="inCorporate context menu" src="./screenshot/screenshot1.png">
 </a>
 
+Switch branch by dependency module
+<a href="./screenshot/screenshot-branch-dropdown.png">
+    <img title="a title" alt="inCorporate context menu" src="./screenshot/screenshot-branch-dropdown.png">
+</a>
+
 </li>
 <li>3. Enjoy!</li>
 </ul>
@@ -36,3 +42,21 @@ Analysis of compatibilities among versions of existing modules in your Java/Kotl
     <li>Support to the module with Gradle</li>
     <li>Feel free to send any feature suggestions to me :)</li>
 </ul>
+
+
+
+String url = "https://github.com/Yonatha/ai-code-review.git";
+try (Git git = Git.cloneRepository()
+.setURI(url)
+.setDirectory(Paths.get("/path/to/local/repo").toFile())
+.call()) {
+Collection<String> remoteUrls = git.getRepository().getConfig().getStringList("remote", "origin", "url");
+System.out.println(remoteUrls.iterator().next());
+} catch (GitAPIException | IOException e) {
+e.printStackTrace();
+}
+
+
+
+Repository repository = Git.open(new File(module.getPath())).getRepository();
+repository.getConfig().getString("remote","origin","url");
