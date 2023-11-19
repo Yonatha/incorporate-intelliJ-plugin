@@ -6,6 +6,7 @@ Analysis of compatibilities among versions of existing modules in your Java/Kotl
 <b>Features:</b>
 <ul>
     <li>Module Analysis: Displays the compatibility status of all module versions in a project and switch branches.</li>
+    <li>Switch branches</li>
     <li>Support IntelliJ and Android Studio.</li>
 </ul>
 <h3>Usage</h3>
