@@ -1,11 +1,23 @@
 package com.yth.incorporate.ModuleAnalysis;
 
+import org.apache.maven.model.Model;
+
 import java.util.List;
 
 public class ModuleBranches {
     public String moduleName;
     public String currentBranch;
     public List<String> branches;
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public Model model;
 
     public String getModuleName() {
         return moduleName;

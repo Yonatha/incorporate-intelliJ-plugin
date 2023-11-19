@@ -4,7 +4,18 @@ import java.util.List;
 
 public class SemanticVersion {
     public String moduleName;
+
+    public String getModuleCurrentBranch() {
+        return moduleCurrentBranch;
+    }
+
+    public void setModuleCurrentBranch(String moduleCurrentBranch) {
+        this.moduleCurrentBranch = moduleCurrentBranch;
+    }
+
+    public String moduleCurrentBranch;
     public String dependencyName;
+
     public String dependencyCurrentVersion;
     public String dependencyRequiredVersion;
     public String compatibility;

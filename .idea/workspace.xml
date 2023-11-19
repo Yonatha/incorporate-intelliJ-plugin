@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="faca17c6-1869-43fd-bfe4-72207a4174ee" name="Changes" comment="listar branches">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/ModuleAnalysis/ModuleBranches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/ModuleAnalysis/ModuleBranches.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/ModuleAnalysis/SemanticVersion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/ModuleAnalysis/SemanticVersion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/actions/ModuleAnalysisAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/actions/ModuleAnalysisAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +91,9 @@
       <recent name="C:\projetos\pessoal\meus-plugins-intellij\incorporate\inCorporate\src\main" />
       <recent name="C:\projetos\pessoal\meus-plugins-intellij\incorporate\inCorporate\src\main\resources\META-INF" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yth.incorporate.ModuleAnalysis" />
+    </key>
   </component>
   <component name="RunManager" selected="Gradle.Run Plugin">
     <configuration name="inCorporate [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -162,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700356854438</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="listar branches">
+      <option name="closed" value="true" />
+      <created>1700405713719</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700405713719</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

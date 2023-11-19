@@ -71,8 +71,10 @@ public class ModuleAnalysisAction extends AnAction {
 
                 ModuleBranches mb = new ModuleBranches();
                 mb.setModuleName(model.getArtifactId());
-                mb.setCurrentBranch("bac");
+                mb.setCurrentBranch(getCurrentBranch(module));
                 mb.setBranches(getBranches(module));
+                mb.setModel(model);
+                moduleBranches.add(mb);
 
                 artifactList.add(model);
             }
@@ -116,6 +118,20 @@ public class ModuleAnalysisAction extends AnAction {
         }
 
         return branches;
+    }
+
+    public String getCurrentBranch(VirtualFile module) {
+        String currentBranch = null;
+        try (Git git = Git.open(new File(module.getPath()))) {
+            Repository repository = git.getRepository();
+            Ref head = repository.exactRef("HEAD");
+            currentBranch = repository.getBranch();
+
+            System.out.println("Branch atual: " + currentBranch);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return currentBranch;
     }
 
     public static String convertSshToHttps(String sshUrl) {
@@ -180,7 +196,13 @@ public class ModuleAnalysisAction extends AnAction {
         semanticVersion.setDependencyCurrentVersion(dependencyCurrentVersion);
         semanticVersion.setDependencyRequiredVersion(dependencyRequiredVersion);
         semanticVersion.setCompatibility(compatibility);
-        semanticVersion.setBranches(List.of("A", "B", "C"));
+
+        if (!moduleBranches.isEmpty()) {
+            ModuleBranches mb = moduleBranches.stream().filter(x -> x.getModuleName().equals(artifact)).findFirst().orElse(null);
+            semanticVersion.setBranches(mb.getBranches());
+            semanticVersion.setModuleCurrentBranch(mb.getCurrentBranch());
+        }
+
         semanticVersionList.add(semanticVersion);
     }
 
@@ -246,6 +268,7 @@ public class ModuleAnalysisAction extends AnAction {
     public void displayGUI() {
         DefaultTableModel tableModel = new DefaultTableModel();
         tableModel.addColumn("Module");
+        tableModel.addColumn("Current Branch");
         tableModel.addColumn("Dependency");
         tableModel.addColumn("Branches");
         tableModel.addColumn("Required Version");
@@ -253,8 +276,15 @@ public class ModuleAnalysisAction extends AnAction {
         tableModel.addColumn("Compatibility");
 
         for (SemanticVersion dependency : semanticVersionList) {
-            Object[] rowData = {dependency.moduleName, dependency.dependencyName,
-                    getBranchDropdown(dependency.branches), dependency.dependencyRequiredVersion, dependency.dependencyCurrentVersion, dependency.compatibility};
+            Object[] rowData = {
+                    dependency.moduleName,
+                    dependency.getModuleCurrentBranch(),
+                    dependency.dependencyName,
+                    getBranchDropdown(dependency.branches),
+                    dependency.dependencyRequiredVersion,
+                    dependency.dependencyCurrentVersion,
+                    dependency.compatibility
+            };
             tableModel.addRow(rowData);
         }
 
@@ -262,7 +292,6 @@ public class ModuleAnalysisAction extends AnAction {
             public TableCellEditor getCellEditor(int row, int column) {
                 int modelColumn = convertColumnIndexToModel(column);
 
-                // Verificar pelo nome da coluna "Branches"
                 if (getColumnName(modelColumn).equals("Branches") && row < 3) {
                     JComboBox<String> comboBox1 = getBranchDropdown(semanticVersionList.get(row).branches);
                     return new DefaultCellEditor(comboBox1);
