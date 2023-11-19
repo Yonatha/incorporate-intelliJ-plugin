@@ -1,5 +1,8 @@
 package com.yth.incorporate.actions;
 
+import com.intellij.notification.Notification;
+import com.intellij.notification.NotificationType;
+import com.intellij.notification.Notifications;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
@@ -343,7 +346,7 @@ public class ModuleAnalysisAction extends AnAction {
         DialogWrapper dialog = new DialogWrapper(true) {
             {
                 init();
-                setTitle("Module Analysis");
+                setTitle("inCorporate: Module Analysis");
                 setSize(600, 300);
             }
 
@@ -399,10 +402,19 @@ public class ModuleAnalysisAction extends AnAction {
 
             try {
                 checkout.call();
-                System.out.println("Alterado para a branch: " + targetBranch);
+                notificar(module.getName(), "Alterado para a branch: " + targetBranch, NotificationType.INFORMATION);
             } catch (Exception e) {
-                System.err.println("Erro ao mudar para a branch " + targetBranch + ": " + e.getMessage());
+                notificar(module.getName(), "Erro ao mudar para a branch: " + targetBranch + "Motivo: " + e.getMessage(), NotificationType.ERROR);
             }
         }
+    }
+
+    public void notificar(String title, String message, NotificationType type) {
+        Notification notification = new Notification(
+                "notification.incorporate",
+                title,
+                message,
+                type);
+        Notifications.Bus.notify(notification);
     }
 }
