@@ -15,14 +15,13 @@ import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
+import org.eclipse.jgit.api.CheckoutCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.transport.URIish;
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.swing.*;
@@ -37,7 +36,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -47,6 +49,8 @@ public class ModuleAnalysisAction extends AnAction {
     static List<Model> artifactList = new ArrayList<>();
     List<SemanticVersion> semanticVersionList = new ArrayList<>();
     List<ModuleBranches> moduleBranches = new ArrayList<>();
+
+    List<VirtualFile> projectModulesList = new ArrayList<>();
 
     public void actionPerformed(AnActionEvent e) {
 
@@ -66,9 +70,10 @@ public class ModuleAnalysisAction extends AnAction {
     public void loadArtifactList() throws GitAPIException {
         Project project = ProjectManager.getInstance().getOpenProjects()[0];
         VirtualFile[] moduleContentRoots = ProjectRootManager.getInstance(project).getContentRootsFromAllModules();
-        List<VirtualFile> projectModulesList = getModuleNames(moduleContentRoots);
+        projectModulesList = getModuleNames(moduleContentRoots);
 
         for (VirtualFile module : projectModulesList) {
+
             Model model = getArtifactId(module);
             if (model.getArtifactId() != null) {
 
@@ -189,7 +194,6 @@ public class ModuleAnalysisAction extends AnAction {
                 );
             } else {
                 for (Dependency dependency : dependencyList) {
-
                     Model dependencyTarget = artifactList.stream().filter(x -> x.getArtifactId().equals(dependency.getArtifactId())).findFirst().orElse(null);
                     String vTarget = getVersion(dependencyTarget.getVersion(), dependencyTarget);
                     String vOrigin = getVersion(dependency.getVersion(), artifact);
@@ -250,13 +254,6 @@ public class ModuleAnalysisAction extends AnAction {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         return builder.parse(moduleName.getPath() + "/pom.xml");
-    }
-
-    public NodeList getChildNodes(VirtualFile moduleName) throws ParserConfigurationException, IOException, SAXException {
-        Document document = getDocument(moduleName);
-        NodeList nodeList = document.getElementsByTagName("properties");
-        Node propertiesNode = nodeList.item(0);
-        return propertiesNode.getChildNodes();
     }
 
     public Model getArtifactId(VirtualFile module) {
@@ -323,13 +320,14 @@ public class ModuleAnalysisAction extends AnAction {
                         comboBox1.setSelectedItem(currentBranch);
                     }
 
-                    // Add an ItemListener to capture the selected value
+                    final int finalRow = row;
+
                     comboBox1.addItemListener(new ItemListener() {
                         @Override
                         public void itemStateChanged(ItemEvent e) {
                             if (e.getStateChange() == ItemEvent.SELECTED) {
                                 String selectedBranch = (String) e.getItem();
-                                System.out.println("Selected branch: " + selectedBranch);
+                                switchBranch(semanticVersionList.get(finalRow), selectedBranch);
                             }
                         }
                     });
@@ -382,5 +380,29 @@ public class ModuleAnalysisAction extends AnAction {
             return properties.getProperty(variableName);
         }
         return v;
+    }
+
+    public void switchBranch(SemanticVersion sv, String targetBranch) {
+        if (!sv.getModuleCurrentBranch().equals(targetBranch)) {
+
+            VirtualFile module = projectModulesList.stream()
+                    .filter(x -> x.getName().equals(sv.moduleName)).findFirst().orElse(null);
+
+            Git git = null;
+            try {
+                git = Git.open(new File(module.getPath()));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            CheckoutCommand checkout = git.checkout().setName(targetBranch);
+            System.out.println(checkout.getResult());
+
+            try {
+                checkout.call();
+                System.out.println("Alterado para a branch: " + targetBranch);
+            } catch (Exception e) {
+                System.err.println("Erro ao mudar para a branch " + targetBranch + ": " + e.getMessage());
+            }
+        }
     }
 }
