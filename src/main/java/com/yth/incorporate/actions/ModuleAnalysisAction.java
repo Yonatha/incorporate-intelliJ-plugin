@@ -50,6 +50,7 @@ public class ModuleAnalysisAction extends AnAction {
 
         semanticVersionList.clear();
         artifactList.clear();
+        moduleBranches.clear();
 
         try {
             loadArtifactList();
@@ -82,6 +83,26 @@ public class ModuleAnalysisAction extends AnAction {
     }
 
     public static List<String> getBranches(VirtualFile module) {
+
+        List<String> branches = new ArrayList<>();
+        try (Git git = Git.open(new File(module.getPath()))) {
+            List<Ref> b = git.branchList().call();
+            System.out.println("Branches locais:");
+            for (Ref branch : b) {
+                String brancName = branch.getName().replaceAll("refs/heads/", "");
+                branches.add(brancName);
+            }
+            return branches;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (GitAPIException e) {
+            throw new RuntimeException(e);
+        }
+
+        return branches;
+    }
+
+    public static List<String> getBranchesOld(VirtualFile module) {
 
         List<String> branches = new ArrayList<>();
 
