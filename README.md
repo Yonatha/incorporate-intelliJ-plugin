@@ -11,7 +11,7 @@ Analysis of compatibilities among versions of existing modules in your Java/Kotl
 <h3>Usage</h3>
 <ul>
 <li>
-1. Right-click and go to inCorporate -> Module Analysis<br>
+1. Click on the main Tool -> Module Compatibility Analysis<br>
 <br>
 <a href="./screenshot/screanshot0.png">
 <img title="a title" alt="inCorporate context menu" src="./screenshot/screenshot0.png">
