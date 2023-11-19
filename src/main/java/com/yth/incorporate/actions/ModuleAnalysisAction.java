@@ -9,6 +9,7 @@ import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.table.JBTable;
 import com.yth.incorporate.ModuleAnalysis.CompatibilityStatusEnum;
+import com.yth.incorporate.ModuleAnalysis.ModuleBranches;
 import com.yth.incorporate.ModuleAnalysis.SemanticVersion;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
@@ -41,8 +42,9 @@ import java.util.stream.Collectors;
 
 
 public class ModuleAnalysisAction extends AnAction {
-    static HashMap<Model, List<String>> artifactList = new HashMap<>();
+    static List<Model> artifactList = new ArrayList<>();
     List<SemanticVersion> semanticVersionList = new ArrayList<>();
+    List<ModuleBranches> moduleBranches = new ArrayList<>();
 
     public void actionPerformed(AnActionEvent e) {
 
@@ -66,42 +68,53 @@ public class ModuleAnalysisAction extends AnAction {
         for (VirtualFile module : projectModulesList) {
             Model model = getArtifactId(module);
             if (model.getArtifactId() != null) {
-                List<String> branches = getBranches(module);
-                artifactList.put(model,branches);
+
+                ModuleBranches mb = new ModuleBranches();
+                mb.setModuleName(model.getArtifactId());
+                mb.setCurrentBranch("bac");
+                mb.setBranches(getBranches(module));
+
+                artifactList.add(model);
             }
         }
     }
 
     public static List<String> getBranches(VirtualFile module) {
 
-        Repository repository = null;
-        try {
-            repository = Git.open(new File(module.getPath())).getRepository();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        String repositoryUrl = repository.getConfig().getString("remote", "origin", "url");
-
-        if (repositoryUrl.contains("@"))
-            repositoryUrl = convertSshToHttps(repositoryUrl);
-
-        Collection<Ref> refs = null;
-        try {
-            refs = Git.lsRemoteRepository()
-                    .setHeads(true)
-                    .setTags(true)
-                    .setRemote(repositoryUrl)
-                    .call();
-        } catch (GitAPIException e) {
-            throw new RuntimeException(e);
-        }
-
         List<String> branches = new ArrayList<>();
-        for (Ref branch : refs) {
-            String brancName = branch.getName().replaceAll("refs/heads/","");
-            System.out.println("Branch: " + brancName);
-            branches.add(brancName);
+
+        File gitDir = new File(module.getPath(), ".git");
+        if (gitDir.exists() && gitDir.isDirectory()) {
+            Repository repository;
+            try {
+                repository = Git.open(new File(module.getPath())).getRepository();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            String repositoryUrl = repository.getConfig().getString("remote", "origin", "url");
+
+            if (repositoryUrl.contains("@"))
+                repositoryUrl = convertSshToHttps(repositoryUrl);
+
+            Collection<Ref> refs = null;
+            try {
+                refs = Git.lsRemoteRepository()
+                        .setHeads(true)
+                        .setTags(true)
+                        .setRemote(repositoryUrl)
+                        .call();
+            } catch (GitAPIException e) {
+                throw new RuntimeException(e);
+            }
+
+
+            for (Ref branch : refs) {
+                String brancName = branch.getName().replaceAll("refs/heads/", "");
+                System.out.println("Branch: " + brancName);
+                branches.add(brancName);
+            }
         }
+
         return branches;
     }
 
@@ -123,11 +136,8 @@ public class ModuleAnalysisAction extends AnAction {
     }
 
     public void loadSemanticVersionList() {
-        for (Map.Entry<Model, List<String>> entry  : artifactList.entrySet()) {
-            Model artifact = entry.getKey();
-            List<String> branches = entry.getValue();
-            List<Model> artifactListKeys = new ArrayList<>(artifactList.keySet());
-            List<Dependency> dependencyList = filteredDependenciesByArtifact(artifact, artifactListKeys);
+        for (Model artifact : artifactList) {
+            List<Dependency> dependencyList = filteredDependenciesByArtifact(artifact, artifactList);
 
             if (dependencyList.isEmpty()) {
                 String currentVersion = getVersion(artifact.getVersion(), artifact);
@@ -136,17 +146,12 @@ public class ModuleAnalysisAction extends AnAction {
                         "",
                         currentVersion,
                         currentVersion,
-                        "",
-                        branches
+                        ""
                 );
             } else {
                 for (Dependency dependency : dependencyList) {
 
-                    Model dependencyTarget = artifactList.keySet().stream()
-                            .filter(x -> x.getArtifactId().equals(dependency.getArtifactId()))
-                            .findFirst()
-                            .orElse(null);
-
+                    Model dependencyTarget = artifactList.stream().filter(x -> x.getArtifactId().equals(dependency.getArtifactId())).findFirst().orElse(null);
                     String vTarget = getVersion(dependencyTarget.getVersion(), dependencyTarget);
                     String vOrigin = getVersion(dependency.getVersion(), artifact);
 
@@ -156,8 +161,7 @@ public class ModuleAnalysisAction extends AnAction {
                             dependency.getArtifactId(),
                             vOrigin,
                             vTarget,
-                            compatibilityStatusLabel.getDescricao(),
-                            branches
+                            compatibilityStatusLabel.getDescricao()
                     );
                 }
             }
@@ -168,8 +172,7 @@ public class ModuleAnalysisAction extends AnAction {
                                     String dependencyName,
                                     String dependencyCurrentVersion,
                                     String dependencyRequiredVersion,
-                                    String compatibility,
-                                    List<String> braches
+                                    String compatibility
     ) {
         SemanticVersion semanticVersion = new SemanticVersion();
         semanticVersion.setModuleName(artifact);
@@ -177,7 +180,7 @@ public class ModuleAnalysisAction extends AnAction {
         semanticVersion.setDependencyCurrentVersion(dependencyCurrentVersion);
         semanticVersion.setDependencyRequiredVersion(dependencyRequiredVersion);
         semanticVersion.setCompatibility(compatibility);
-        semanticVersion.setBranches(braches);
+        semanticVersion.setBranches(List.of("A", "B", "C"));
         semanticVersionList.add(semanticVersion);
     }
 
@@ -304,5 +307,4 @@ public class ModuleAnalysisAction extends AnAction {
         }
         return v;
     }
-
 }

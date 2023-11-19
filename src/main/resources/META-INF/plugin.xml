@@ -41,6 +41,14 @@ A plugin for IntelliJ IDEA and other JetBrains IDEs that displays compatibility 
     </extensions>
 
     <actions>
+        <action
+                id="com.yth.incorporate.popupcontextmenu.ToolsMenu"
+                class="com.yth.incorporate.actions.ModuleAnalysisAction"
+                text="Module Analysis"
+                description="Analisar compatibilidade de dependências entre modulos">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+
         <group id="com.yth.ai.incorporate.popupcontextmenu" text="inCorporate" popup="true">
             <add-to-group group-id="EditorPopupMenu3" anchor="first"/>
             <action text="Module Analysis"
@@ -48,5 +56,6 @@ A plugin for IntelliJ IDEA and other JetBrains IDEs that displays compatibility 
                     id="com.yth.incorporate.popupcontextmenu.moduleAnalysis">
             </action>
         </group>
+
     </actions>
 </idea-plugin>
