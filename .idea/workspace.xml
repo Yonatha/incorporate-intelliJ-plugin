@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="faca17c6-1869-43fd-bfe4-72207a4174ee" name="Changes" comment="listar branches">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/ModuleAnalysis/ModuleBranches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/ModuleAnalysis/ModuleBranches.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/ModuleAnalysis/SemanticVersion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/ModuleAnalysis/SemanticVersion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/actions/ModuleAnalysisAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yth/incorporate/actions/ModuleAnalysisAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700405713719</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="listar branches">
+      <option name="closed" value="true" />
+      <created>1700412498123</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1700412498123</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

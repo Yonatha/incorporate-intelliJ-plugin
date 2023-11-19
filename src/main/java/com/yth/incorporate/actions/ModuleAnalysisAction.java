@@ -268,9 +268,8 @@ public class ModuleAnalysisAction extends AnAction {
     public void displayGUI() {
         DefaultTableModel tableModel = new DefaultTableModel();
         tableModel.addColumn("Module");
-        tableModel.addColumn("Current Branch");
         tableModel.addColumn("Dependency");
-        tableModel.addColumn("Branches");
+        tableModel.addColumn("Branch");
         tableModel.addColumn("Required Version");
         tableModel.addColumn("Current Version");
         tableModel.addColumn("Compatibility");
@@ -278,9 +277,8 @@ public class ModuleAnalysisAction extends AnAction {
         for (SemanticVersion dependency : semanticVersionList) {
             Object[] rowData = {
                     dependency.moduleName,
-                    dependency.getModuleCurrentBranch(),
                     dependency.dependencyName,
-                    getBranchDropdown(dependency.branches),
+                    dependency.getModuleCurrentBranch(),
                     dependency.dependencyRequiredVersion,
                     dependency.dependencyCurrentVersion,
                     dependency.compatibility
@@ -291,9 +289,17 @@ public class ModuleAnalysisAction extends AnAction {
         JBTable table = new JBTable(tableModel) {
             public TableCellEditor getCellEditor(int row, int column) {
                 int modelColumn = convertColumnIndexToModel(column);
+                if (getColumnName(modelColumn).equals("Branch") && row < 2) {
+                    JComboBox<String> comboBox1 = getBranchDropdown(semanticVersionList.get(row));
 
-                if (getColumnName(modelColumn).equals("Branches") && row < 3) {
-                    JComboBox<String> comboBox1 = getBranchDropdown(semanticVersionList.get(row).branches);
+                    comboBox1.validate();
+                    comboBox1.repaint();
+
+                    String currentBranch = semanticVersionList.get(row).getModuleCurrentBranch();
+                    if (currentBranch != null && semanticVersionList.get(row).branches.contains(currentBranch)) {
+                        comboBox1.setSelectedItem(currentBranch);
+                    }
+
                     return new DefaultCellEditor(comboBox1);
                 } else {
                     return super.getCellEditor(row, column);
@@ -318,11 +324,18 @@ public class ModuleAnalysisAction extends AnAction {
         dialog.show();
     }
 
-    private JComboBox<String> getBranchDropdown(List<String> branches) {
+    private JComboBox<String> getBranchDropdown(SemanticVersion semanticVersion) {
         JComboBox<String> comboBox = new JComboBox<>();
+        List<String> branches = semanticVersion.getBranches();
+        String currentBranch = semanticVersion.getModuleCurrentBranch();
+
         for (String branch : branches) {
             comboBox.addItem(branch);
         }
+
+        if (currentBranch != null && branches.contains(currentBranch))
+            comboBox.setSelectedItem(currentBranch);
+
         return comboBox;
     }
 
