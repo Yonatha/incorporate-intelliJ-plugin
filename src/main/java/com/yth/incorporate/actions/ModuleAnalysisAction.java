@@ -26,6 +26,7 @@ import org.xml.sax.SAXException;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -33,17 +34,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 
 public class ModuleAnalysisAction extends AnAction {
-    static List<Model> artifactList = new ArrayList<>();
+    static HashMap<Model, List<String>> artifactList = new HashMap<>();
     List<SemanticVersion> semanticVersionList = new ArrayList<>();
 
     public void actionPerformed(AnActionEvent e) {
@@ -68,13 +66,13 @@ public class ModuleAnalysisAction extends AnAction {
         for (VirtualFile module : projectModulesList) {
             Model model = getArtifactId(module);
             if (model.getArtifactId() != null) {
-                artifactList.add(model);
-                getBranches(module);
+                List<String> branches = getBranches(module);
+                artifactList.put(model,branches);
             }
         }
     }
 
-    public static void getBranches(VirtualFile module) {
+    public static List<String> getBranches(VirtualFile module) {
 
         Repository repository = null;
         try {
@@ -98,10 +96,13 @@ public class ModuleAnalysisAction extends AnAction {
             throw new RuntimeException(e);
         }
 
+        List<String> branches = new ArrayList<>();
         for (Ref branch : refs) {
             String brancName = branch.getName().replaceAll("refs/heads/","");
             System.out.println("Branch: " + brancName);
+            branches.add(brancName);
         }
+        return branches;
     }
 
     public static String convertSshToHttps(String sshUrl) {
@@ -122,8 +123,11 @@ public class ModuleAnalysisAction extends AnAction {
     }
 
     public void loadSemanticVersionList() {
-        for (Model artifact : artifactList) {
-            List<Dependency> dependencyList = filteredDependenciesByArtifact(artifact, artifactList);
+        for (Map.Entry<Model, List<String>> entry  : artifactList.entrySet()) {
+            Model artifact = entry.getKey();
+            List<String> branches = entry.getValue();
+            List<Model> artifactListKeys = new ArrayList<>(artifactList.keySet());
+            List<Dependency> dependencyList = filteredDependenciesByArtifact(artifact, artifactListKeys);
 
             if (dependencyList.isEmpty()) {
                 String currentVersion = getVersion(artifact.getVersion(), artifact);
@@ -132,12 +136,17 @@ public class ModuleAnalysisAction extends AnAction {
                         "",
                         currentVersion,
                         currentVersion,
-                        ""
+                        "",
+                        branches
                 );
             } else {
                 for (Dependency dependency : dependencyList) {
 
-                    Model dependencyTarget = artifactList.stream().filter(x -> x.getArtifactId().equals(dependency.getArtifactId())).findFirst().orElse(null);
+                    Model dependencyTarget = artifactList.keySet().stream()
+                            .filter(x -> x.getArtifactId().equals(dependency.getArtifactId()))
+                            .findFirst()
+                            .orElse(null);
+
                     String vTarget = getVersion(dependencyTarget.getVersion(), dependencyTarget);
                     String vOrigin = getVersion(dependency.getVersion(), artifact);
 
@@ -147,7 +156,8 @@ public class ModuleAnalysisAction extends AnAction {
                             dependency.getArtifactId(),
                             vOrigin,
                             vTarget,
-                            compatibilityStatusLabel.getDescricao()
+                            compatibilityStatusLabel.getDescricao(),
+                            branches
                     );
                 }
             }
@@ -158,7 +168,8 @@ public class ModuleAnalysisAction extends AnAction {
                                     String dependencyName,
                                     String dependencyCurrentVersion,
                                     String dependencyRequiredVersion,
-                                    String compatibility
+                                    String compatibility,
+                                    List<String> braches
     ) {
         SemanticVersion semanticVersion = new SemanticVersion();
         semanticVersion.setModuleName(artifact);
@@ -166,6 +177,7 @@ public class ModuleAnalysisAction extends AnAction {
         semanticVersion.setDependencyCurrentVersion(dependencyCurrentVersion);
         semanticVersion.setDependencyRequiredVersion(dependencyRequiredVersion);
         semanticVersion.setCompatibility(compatibility);
+        semanticVersion.setBranches(braches);
         semanticVersionList.add(semanticVersion);
     }
 
@@ -232,16 +244,31 @@ public class ModuleAnalysisAction extends AnAction {
         DefaultTableModel tableModel = new DefaultTableModel();
         tableModel.addColumn("Module");
         tableModel.addColumn("Dependency");
+        tableModel.addColumn("Branches");
         tableModel.addColumn("Required Version");
         tableModel.addColumn("Current Version");
         tableModel.addColumn("Compatibility");
 
         for (SemanticVersion dependency : semanticVersionList) {
-            Object[] rowData = {dependency.moduleName, dependency.dependencyName, dependency.dependencyCurrentVersion, dependency.dependencyRequiredVersion, dependency.compatibility};
+            Object[] rowData = {dependency.moduleName, dependency.dependencyName,
+                    getBranchDropdown(dependency.branches), dependency.dependencyRequiredVersion, dependency.dependencyCurrentVersion, dependency.compatibility};
             tableModel.addRow(rowData);
         }
 
-        JBTable table = new JBTable(tableModel);
+        JBTable table = new JBTable(tableModel) {
+            public TableCellEditor getCellEditor(int row, int column) {
+                int modelColumn = convertColumnIndexToModel(column);
+
+                // Verificar pelo nome da coluna "Branches"
+                if (getColumnName(modelColumn).equals("Branches") && row < 3) {
+                    JComboBox<String> comboBox1 = getBranchDropdown(semanticVersionList.get(row).branches);
+                    return new DefaultCellEditor(comboBox1);
+                } else {
+                    return super.getCellEditor(row, column);
+                }
+            }
+        };
+
         JScrollPane scrollPane = new JScrollPane(table);
         DialogWrapper dialog = new DialogWrapper(true) {
             {
@@ -259,6 +286,14 @@ public class ModuleAnalysisAction extends AnAction {
         dialog.show();
     }
 
+    private JComboBox<String> getBranchDropdown(List<String> branches) {
+        JComboBox<String> comboBox = new JComboBox<>();
+        for (String branch : branches) {
+            comboBox.addItem(branch);
+        }
+        return comboBox;
+    }
+
     public static String getVersion(String v, Model model) {
         Pattern pattern = Pattern.compile("\\$\\{(.*?)\\}");
         Matcher matcher = pattern.matcher(v);
@@ -269,4 +304,5 @@ public class ModuleAnalysisAction extends AnAction {
         }
         return v;
     }
+
 }
