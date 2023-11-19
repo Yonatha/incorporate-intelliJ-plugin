@@ -5,8 +5,8 @@ Analysis of compatibilities among versions of existing modules in your Java/Kotl
 <br>
 <b>Features:</b>
 <ul>
-    <li>Module Analysis: Displays the compatibility status of all module versions in a project, including major, minor, and patch versions.</li>
-    <li>Supports all JetBrains IDEs, including IntelliJ IDEA, PyCharm, WebStorm, and Android Studio.</li>
+    <li>Module Analysis: Displays the compatibility status of all module versions in a project and switch branches.</li>
+    <li>Support IntelliJ and Android Studio.</li>
 </ul>
 <h3>Usage</h3>
 <ul>
@@ -23,6 +23,11 @@ Analysis of compatibilities among versions of existing modules in your Java/Kotl
 <br>
 <a href="./screenshot/screanshot1.png">
 <img title="a title" alt="inCorporate context menu" src="./screenshot/screenshot1.png">
+</a>
+
+Switch branch by dependency module
+<a href="./screenshot/screenshot-branch-dropdown.png">
+    <img title="a title" alt="inCorporate context menu" src="./screenshot/screenshot-branch-dropdown.png">
 </a>
 
 </li>

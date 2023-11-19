@@ -18,13 +18,13 @@ A plugin for IntelliJ IDEA and other JetBrains IDEs that displays compatibility 
 <br><br>
 <b>Features:</b>
 <ul>
-    <li>Module Analysis: Displays the compatibility status of all module versions in a project, including major, minor, and patch versions.</li>
+    <li>Module Compatibility Analysis: Displays the compatibility status of all module versions in a project, including major, minor, and patch versions.</li>
     <li>Supports all JetBrains IDEs, including IntelliJ IDEA, PyCharm, WebStorm, and Android Studio.</li>
 </ul>
 <br>
 <b>Coming soon:</b>
 <ul>
-    <li>Change version on the Module Analysis and apply upgrade/downgrade compatibility</li>
+    <li>Change version on the Module Compatibility Analysis and apply upgrade/downgrade compatibility</li>
     <li>Display historic of tags on the remote repository for each module of project</li>
     <li>Feel free to send any feature suggestions to me :)</li>
 </ul>
@@ -46,14 +46,14 @@ A plugin for IntelliJ IDEA and other JetBrains IDEs that displays compatibility 
         <action
                 id="com.yth.incorporate.popupcontextmenu.ToolsMenu"
                 class="com.yth.incorporate.actions.ModuleAnalysisAction"
-                text="Module Analysis"
+                text="Module Compatibility Analysis"
                 description="Analisar compatibilidade de dependências entre modulos">
             <add-to-group group-id="ToolsMenu" anchor="first"/>
         </action>
 
         <group id="com.yth.ai.incorporate.popupcontextmenu" text="inCorporate" popup="true">
             <add-to-group group-id="EditorPopupMenu3" anchor="first"/>
-            <action text="Module Analysis"
+            <action text="Module Compatibility Analysis"
                     class="com.yth.incorporate.actions.ModuleAnalysisAction"
                     id="com.yth.incorporate.popupcontextmenu.moduleAnalysis">
             </action>

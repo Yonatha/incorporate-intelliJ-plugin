@@ -346,7 +346,7 @@ public class ModuleAnalysisAction extends AnAction {
         DialogWrapper dialog = new DialogWrapper(true) {
             {
                 init();
-                setTitle("inCorporate: Module Analysis");
+                setTitle("inCorporate: Module Compatibility Analysis");
                 setSize(600, 300);
             }
 
