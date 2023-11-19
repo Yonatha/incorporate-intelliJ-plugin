@@ -31,6 +31,8 @@ import javax.swing.table.TableCellEditor;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -320,6 +322,17 @@ public class ModuleAnalysisAction extends AnAction {
                     if (currentBranch != null && semanticVersionList.get(row).branches.contains(currentBranch)) {
                         comboBox1.setSelectedItem(currentBranch);
                     }
+
+                    // Add an ItemListener to capture the selected value
+                    comboBox1.addItemListener(new ItemListener() {
+                        @Override
+                        public void itemStateChanged(ItemEvent e) {
+                            if (e.getStateChange() == ItemEvent.SELECTED) {
+                                String selectedBranch = (String) e.getItem();
+                                System.out.println("Selected branch: " + selectedBranch);
+                            }
+                        }
+                    });
 
                     return new DefaultCellEditor(comboBox1);
                 } else {
